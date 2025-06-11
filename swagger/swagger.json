@@ -1,0 +1,157 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Music API",
+    "version": "1.0.0",
+    "description": "API para gerenciamento de músicas e usuários com autenticação JWT"
+  },
+  "paths": {
+    "/api/users/register": {
+      "post": {
+        "summary": "Registrar um novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["name", "email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuário criado com sucesso" },
+          "400": { "description": "Erro na requisição" }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login bem-sucedido (retorna JWT)" },
+          "401": { "description": "Credenciais inválidas" }
+        }
+      }
+    },
+    "/api/musics": {
+      "get": {
+        "summary": "Listar todas as músicas",
+        "responses": {
+          "200": { "description": "Lista de músicas" }
+        }
+      },
+      "post": {
+        "summary": "Criar nova música",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "singer": { "type": "string" },
+                  "genre": { "type": "string" },
+                  "year": { "type": "integer" },
+                  "description": { "type": "string" }
+                },
+                "required": ["title", "singer", "genre", "year", "description"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Música criada com sucesso" },
+          "400": { "description": "Campos obrigatórios faltando" },
+          "401": { "description": "Não autorizado" }
+        }
+      }
+    },
+    "/api/musics/{id}": {
+      "put": {
+        "summary": "Atualizar uma música existente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "singer": { "type": "string" },
+                  "genre": { "type": "string" },
+                  "year": { "type": "integer" },
+                  "description": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Música atualizada com sucesso" },
+          "400": { "description": "Erro na requisição" },
+          "401": { "description": "Não autorizado" },
+          "404": { "description": "Música não encontrada" }
+        }
+      },
+      "delete": {
+        "summary": "Deletar uma música",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Música removida com sucesso" },
+          "401": { "description": "Não autorizado" },
+          "404": { "description": "Música não encontrada" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
