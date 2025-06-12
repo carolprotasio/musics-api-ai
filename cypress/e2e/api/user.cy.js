@@ -17,7 +17,7 @@ describe('Users API', () => {
       }
     }).then((res) => {
       expect(res.status).to.eq(201);
-      expect(res.body).to.have.message('Usuário já existe com este e-mail.');
+      expect(res.body).to.have.property('message', 'Usuário já existe com este e-mail.');
     })
   })
   it('deve falhar ao registrar um usuário com email já existente', () => {

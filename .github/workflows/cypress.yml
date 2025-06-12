@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch: # ✅ permite rodar manualmente
 
 jobs:
   cypress-tests:
@@ -15,6 +16,11 @@ jobs:
         image: mongo
         ports:
           - 27017:27017
+        options: >-
+          --health-cmd="mongosh --eval 'db.stats()'" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
 
     steps:
       - name: Checkout repositório
@@ -23,10 +29,15 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+      - name: Exibir variáveis de ambiente (debug)
+        run: |
+          echo "MONGO_URI=$MONGO_URI"
+          echo "JWT_SECRET=$JWT_SECRET"
+
       - name: Subir aplicação em background
         run: |
           npm start & 
-          sleep 10
+          sleep 15 # garante que a API está disponível antes do Cypress iniciar
 
       - name: Rodar testes Cypress
         run: npm run test
