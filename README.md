@@ -146,4 +146,4 @@ Este projeto consolidou meus conhecimentos em desenvolvimento e testes de APIs R
 Foi desenvolvido como parte do meu portfólio de QA, com o apoio de Inteligência Artificial e ferramentas modernas de qualidade de software.
 
 
-🖤 Feito com dedicação por [**Carol Protasio**](https://www.linkedin.com/in/carol-protasio/)
+🤍 Feito com dedicação por [**Carol Protasio**](https://www.linkedin.com/in/carol-protasio/)
