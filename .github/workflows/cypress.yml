@@ -40,7 +40,7 @@ jobs:
       - name: Subir aplicação em background
         run: |
           npm start & 
-          sleep 15 # garante que a API está disponível antes do Cypress iniciar
+          sleep 20 # garante que a API está disponível antes do Cypress iniciar
 
       - name: Rodar testes Cypress
         run: npm run test
