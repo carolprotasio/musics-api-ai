@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const userRoutes = require('./routes/userRoutes')
 const musicRoutes = require('./routes/musicRoutes')
 const swaggerUi = require('swagger-ui-express')
-const swaggerDocument = require('./swagger/swagger.json')
+const swaggerDocument = require('../swagger/swagger.json')
 
 const app = express()
 app.use(express.json())

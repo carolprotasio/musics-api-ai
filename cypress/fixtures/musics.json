@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Skyfall",
+    "singer": "Adele",
+    "genre": "Pop",
+    "year": 2012,
+    "description": "Trilha sonora 007"
+  },
+  {
+    "title": "Bohemian Rhapsody",
+    "singer": "Queen",
+    "genre": "Rock",
+    "year": 1975,
+    "description": "Clássico do rock progressivo com estrutura incomum"
+  },
+  {
+    "title": "Blinding Lights",
+    "singer": "The Weeknd",
+    "genre": "Synthpop",
+    "year": 2019,
+    "description": "Hit com influências dos anos 80"
+  },
+  {
+    "title": "Shape of You",
+    "singer": "Ed Sheeran",
+    "genre": "Pop",
+    "year": 2017,
+    "description": "Sucesso comercial global com batida tropical"
+  },
+  {
+    "title": "Smells Like Teen Spirit",
+    "singer": "Nirvana",
+    "genre": "Grunge",
+    "year": 1991,
+    "description": "Hino da geração dos anos 90"
+  }
+]
