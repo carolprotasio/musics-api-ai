@@ -21,6 +21,10 @@ app.use('/api/musics', musicRoutes)
 app.get('/api/users/health', (req, res) => {
   res.status(200).json({ status: 'ok' })
 })
+// Rota simples para o GitHub Actions verificar se a API está no ar
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' })
+})
 
 // Conectar ao MongoDB e iniciar servidor
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

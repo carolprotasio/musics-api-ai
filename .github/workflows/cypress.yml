@@ -45,7 +45,7 @@ jobs:
       - name: Subir aplicação e esperar API
         run: |
           npm start & 
-          npx wait-on http://localhost:3000/api
+          npx wait-on http://localhost:3000/health
 
       - name: Rodar testes Cypress
         run: npm run test
