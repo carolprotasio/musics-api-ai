@@ -42,10 +42,10 @@ jobs:
           echo "MONGO_URI=$MONGO_URI"
           echo "JWT_SECRET=$JWT_SECRET"
 
-      - name: Subir aplicação em background
+      - name: Subir aplicação e esperar API
         run: |
           npm start & 
-          sleep 20 # garante que a API está disponível antes do Cypress iniciar
+          npx wait-on http://localhost:3000/api
 
       - name: Rodar testes Cypress
         run: npm run test
