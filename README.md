@@ -89,17 +89,23 @@ npm run test
 ## 🔍 Cenários e Casos de Teste
 👤 User - Register
 
-✅ Deve registrar um novo usuário
+✅ deve registrar um novo usuário com sucesso
 
-✅ Não deve registrar com e-mail já existente
+✅ deve falhar ao registrar um usuário com email já existente
 
-✅ Não deve registrar com e-mail em formato inválido
+✅ deve falhar ao registrar com e-mail de formatação errada
+
+✅ deve falhar ao tentar cadastrar usuario com os campos em branco
 
 👤 User - Login
 
-✅ Deve fazer login com credenciais válidas
+✅ deve fazer login e salvar o token com sucesso
 
-✅ Não deve fazer login com senha inválida
+✅ deve falhar ao tentar fazer o login com o e-mail não cadastrado
+
+✅ deve falhar ao tentar fazer login com os campos vazios
+
+✅ deve falhar ao tentar fazer o login com a senha incorreta
 
 🎵 Musics
 
