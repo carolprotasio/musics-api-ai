@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const validator = require('validator')
 
 // Cadastro de usuário
 exports.register = async (req, res) => {
@@ -10,7 +11,9 @@ exports.register = async (req, res) => {
     if (!name || !email || !password) {
       return res.status(400).json({ message: 'Todos os campos são obrigatórios.' })
     }
-
+      if (!validator.isEmail(email)) {
+      return res.status(400).json({ message: 'Formato de e-mail inválido.' })
+    }
     const userExists = await User.findOne({ email })
     if (userExists) {
       return res.status(400).json({ message: 'Usuário já existe com este e-mail.' })

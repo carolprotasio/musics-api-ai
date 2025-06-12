@@ -1,4 +1,6 @@
 const Music = require('../models/Music')
+const bcrypt = require('bcryptjs')
+const validator = require('validator')
 
 // Criar nova música
 exports.createMusic = async (req, res) => {
