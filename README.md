@@ -1,3 +1,5 @@
+<img src="https://github.com/carolprotasio/musics-api-ai/blob/main/src/assets/musicApiImg.jpg" alt="swagger" width="1000"/> 
+
 # 🎵 music-api-ai
 
 Este projeto é uma **API RESTful para um sistema de cadastro e gerenciamento de músicas**, desenvolvida com foco em estudos e aprendizado em automação de testes, integração com MongoDB e uso de ferramentas de apoio à documentação, como Swagger.  
