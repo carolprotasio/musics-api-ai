@@ -107,17 +107,32 @@ npm run test
 
 ✅ deve falhar ao tentar fazer o login com a senha incorreta
 
-🎵 Musics
+<img src="https://github.com/carolprotasio/musics-api-ai/blob/main/src/assets/user.png" alt="testes cypress" width="700"/>  
 
-✅ Deve criar uma nova música (com token)
+🎵 Musics - CRUD de músicas
 
-✅ Não deve criar música sem token de autenticação
+✅ deve criar uma música usando a massa de dados da fixture
 
-✅ Deve listar todas as músicas do usuário autenticado
+✅ deve criar uma nova música manualmente
 
-✅ Deve atualizar informações de uma música
+✅ deve atualizar informações de uma música
 
-✅ Deve deletar uma música específica
+✅ deve listar todas as músicas do usuário autenticado
+
+✅ deve deletar uma música específica
+
+✅ deve falhar ao tentar deletar uma música que não existe
+
+🎵 Musics - Validações e autenticação
+
+✅ deve falhar ao tentar criar uma música com título ausente
+
+✅ deve falhar ao tentar criar uma música sem o token de autenticação
+
+✅ deve falhar ao tentar criar música com todos os campos vazios
+
+<img src="https://github.com/carolprotasio/musics-api-ai/blob/main/src/assets/music.png" alt="testes cypress" width="700"/>  
+<img src="https://github.com/carolprotasio/musics-api-ai/blob/main/src/assets/cli.png" alt="testes cypress" width="700"/>  
 
 ## 🚀 Como Instalar e Rodar o Projeto
 Pré-requisitos:
