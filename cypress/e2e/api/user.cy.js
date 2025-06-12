@@ -17,7 +17,7 @@ describe('Users API', () => {
       }
     }).then((res) => {
       expect(res.status).to.eq(201);
-      expect(res.body).to.have.property('message', 'Usuário já existe com este e-mail.');
+      expect(res.body).to.have.property('message', 'Usuário criado com sucesso.');
     })
   })
   it('deve falhar ao registrar um usuário com email já existente', () => {
@@ -35,7 +35,7 @@ describe('Users API', () => {
       
     });
   });
-  it.only('deve falhar ao registrar com e-mail de formatação errada ', () => {
+  it('deve falhar ao registrar com e-mail de formatação errada ', () => {
     cy.api({
       method: 'POST',
       url: `${api}/register`,
@@ -52,11 +52,28 @@ describe('Users API', () => {
     });
     
   });
+  it('deve falhar ao tentar cadastrar usuario com os campos em branco', () => {
+    cy.api({
+      method: 'POST',
+      url: `${api}/register`,
+      body: {
+        name: '',
+        email: '',
+        password: ''
+      },
+      failOnStatusCode: false
+    }).then((res) => {
+      expect(res.status).to.eq(400);
+      expect(res.body).to.have.property('message', 'Todos os campos são obrigatórios.');
+    });
+      
+  });
   //Tests for login a user
-  it('deve fazer login e salvar o token', () => {
+  it('deve fazer login e salvar o token com sucesso', () => {
     cy.api({
       method: 'POST',
       url: `${api}/login`,
+      failOnStatusCode: false,
       body: {
         email: uniqueEmail,
         password: '123456'
@@ -66,6 +83,35 @@ describe('Users API', () => {
       expect(res.body).to.have.property('token');
       Cypress.env('token', res.body.token);
     });
+  });
+  it('deve falhar ao tentar fazer o login com o e-mail não cadastrado', () => {
+    cy.api({
+      method: 'POST',
+      url: `${api}/login`,
+      failOnStatusCode: false,
+      body: {
+        email: 'notRegister@test.com',
+        password:'123456'
+      }
+    }).then(res => {
+      expect(res.status).to.eq(400);
+      expect(res.body).to.have.property('message', 'Usuário não encontrado.');
+    })
+    
+  });
+  it.only('deve falhar ao tentar fazer login com os campos vazios', () => {
+    cy.api({
+      method: 'POST',
+      url: `${api}/login`,
+      failOnStatusCode: false,
+      body: {
+        emai: " ",
+        password: " "        
+      }
+    }).then((res) => {
+      expect(res.status).to.eq(400)
+      expect(res.body).to.have.property('message', 'Email e senha são obrigatórios.');
+    })
   });
   
 });
