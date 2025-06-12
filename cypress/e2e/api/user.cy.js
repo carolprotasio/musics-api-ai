@@ -99,7 +99,7 @@ describe('Users API', () => {
     })
     
   });
-  it.only('deve falhar ao tentar fazer login com os campos vazios', () => {
+  it('deve falhar ao tentar fazer login com os campos vazios', () => {
     cy.api({
       method: 'POST',
       url: `${api}/login`,
