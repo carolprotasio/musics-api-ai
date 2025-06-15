@@ -21,7 +21,7 @@ describe('Users API', () => {
       });
     });
 
-/*     it('deve falhar ao registrar um usuário com email já existente', () => {
+     it('deve falhar ao registrar um usuário com email já existente', () => {
       cy.api({
         method: 'POST',
         url: `${api}/register`,
@@ -34,7 +34,7 @@ describe('Users API', () => {
       }).then((res) => {
         expect(res.status).to.eq(400);
       });
-    }); */
+    }); 
 
     it('deve falhar ao registrar com e-mail de formatação errada', () => {
       cy.api({

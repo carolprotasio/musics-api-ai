@@ -19,7 +19,7 @@ describe('Musics API', () => {
 
   context('CRUD de músicas', () => {
 
-    /* it('deve criar uma música usando a massa de dados da fixture', () => {
+    it('deve criar uma música usando a massa de dados da fixture', () => {
       cy.fixture('musics').then((musics) => {
         const music = musics[1];
         cy.api({
@@ -36,7 +36,7 @@ describe('Musics API', () => {
           musicId = res.body._id;
         });
       });
-    }); */
+    });
 
     it('deve criar uma nova música manualmente', () => {
       cy.api({
