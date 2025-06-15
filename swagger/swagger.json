@@ -5,9 +5,20 @@
     "version": "1.0.0",
     "description": "API para gerenciamento de músicas e usuários com autenticação JWT"
   },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Endpoints relacionados aos usuários"
+    },
+    {
+      "name": "Musics",
+      "description": "Endpoints relacionados às músicas"
+    }
+  ],
   "paths": {
     "/api/users/register": {
       "post": {
+        "tags": ["Users"],
         "summary": "Registrar um novo usuário",
         "requestBody": {
           "required": true,
@@ -33,6 +44,7 @@
     },
     "/api/users/login": {
       "post": {
+        "tags": ["Users"],
         "summary": "Login de usuário",
         "requestBody": {
           "required": true,
@@ -57,12 +69,14 @@
     },
     "/api/musics": {
       "get": {
+        "tags": ["Musics"],
         "summary": "Listar todas as músicas",
         "responses": {
           "200": { "description": "Lista de músicas" }
         }
       },
       "post": {
+        "tags": ["Musics"],
         "summary": "Criar nova música",
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
@@ -92,6 +106,7 @@
     },
     "/api/musics/{id}": {
       "put": {
+        "tags": ["Musics"],
         "summary": "Atualizar uma música existente",
         "security": [{ "bearerAuth": [] }],
         "parameters": [
@@ -127,6 +142,7 @@
         }
       },
       "delete": {
+        "tags": ["Musics"],
         "summary": "Deletar uma música",
         "security": [{ "bearerAuth": [] }],
         "parameters": [
