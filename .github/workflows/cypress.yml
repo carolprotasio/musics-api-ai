@@ -31,17 +31,7 @@ jobs:
 
       - name: Instalar dependências
         run: npm install
-
-      - name: ✅ Verificar secrets
-        run: |
-          echo "MONGO_URI=${{ secrets.MONGO_URI }}"
-          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}"
-
-      - name: Exibir variáveis de ambiente (debug)
-        run: |
-          echo "MONGO_URI=$MONGO_URI"
-          echo "JWT_SECRET=$JWT_SECRET"
-
+      
       - name: Subir aplicação e esperar API
         run: |
           npm start & 

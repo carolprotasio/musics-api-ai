@@ -4,7 +4,7 @@ describe('Musics API', () => {
   const api = 'http://localhost:3000/api/musics';
   let musicId = '';
 
-  before(() => {
+  beforeEach(() => {
     cy.api({
       method: 'POST',
       url: 'http://localhost:3000/api/users/login',
