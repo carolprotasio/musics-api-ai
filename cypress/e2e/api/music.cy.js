@@ -28,7 +28,8 @@ describe('Musics API', () => {
           headers: {
             Authorization: `Bearer ${Cypress.env('token')}`
           },
-          body: music
+          body: music,
+          failOnStatusCode: false
         }).then((res) => {
           expect(res.status).to.eq(201);
           expect(res.body).to.have.property('_id');
@@ -50,7 +51,8 @@ describe('Musics API', () => {
           genre: 'Pop',
           year: 2012,
           description: 'Trilha sonora 007'
-        }
+        },
+        failOnStatusCode: false
       }).then((res) => {
         expect(res.status).to.eq(201);
         expect(res.body).to.have.property('_id');
@@ -71,7 +73,8 @@ describe('Musics API', () => {
           genre: 'Pop',
           year: 2013,
           description: 'Remix da trilha'
-        }
+        },
+        failOnStatusCode: false,
       }).then((res) => {
         expect(res.status).to.eq(200);
       });
@@ -83,7 +86,8 @@ describe('Musics API', () => {
         url: api,
         headers: {
           Authorization: `Bearer ${Cypress.env('token')}`
-        }
+        },
+        failOnStatusCode: false
       }).then((res) => {
         expect(res.status).to.eq(200);
         expect(res.body).to.be.an('array');
@@ -96,7 +100,8 @@ describe('Musics API', () => {
         url: `${api}/${musicId}`,
         headers: {
           Authorization: `Bearer ${Cypress.env('token')}`
-        }
+        },
+        failOnStatusCode: false
       }).then((res) => {
         expect(res.status).to.eq(200);
       });
