@@ -13,7 +13,8 @@ describe('Users API', () => {
           name: 'Carol QA',
           email: uniqueEmail,
           password: '123456'
-        }
+        },
+        failOnStatusCode: false
       }).then((res) => {
         expect(res.status).to.eq(201);
         expect(res.body).to.have.property('message', 'Usuário criado com sucesso.');
